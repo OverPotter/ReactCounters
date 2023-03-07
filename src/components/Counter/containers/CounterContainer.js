@@ -1,41 +1,45 @@
-import { Component } from "react";
+import {Component} from "react";
 import CounterView from "../components/CounterView";
-
-import styles from "./styles.module.css";
 
 class CounterContainer extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             countValue: 0,
-            valueType: 'number type'
+            valueType: 'number type',
+            opacityValue: 1
         }
     }
-    handelIncrement = () =>{
+
+    handelIncrement = () => {
         this.setState({countValue: this.state.countValue + 1});
         this.checkValueType()
     };
-    handelReset = () =>{
+    handelReset = () => {
         this.setState({countValue: 0, valueType: 'number type'});
     };
-    handelDecrement = () =>{
+    handelDecrement = () => {
         if (this.state.countValue > 0) {
             this.setState({countValue: this.state.countValue - 1});
             this.checkValueType()
         }
     };
 
-    checkValueType =() =>{
-        this.setState({valueType: this.state.countValue % 2 === 0 ? 'even number' :"odd number"})
+    checkValueType = () => {
+        this.setState({valueType: this.state.countValue % 2 === 0 ? "odd number" : "even number"})
+        this.setState({opacityValue: this.state.valueType === "odd number" ? 1 : 0.5})
     }
+
     render() {
-        return<CounterView
+        return <CounterView
             counterValue={this.state.countValue}
             valueType={this.state.valueType}
             handelIncrement={this.handelIncrement}
             handelReset={this.handelReset}
-            handelDecrement={this.handelDecrement}/>;
+            handelDecrement={this.handelDecrement}
+            opacityValue={this.state.opacityValue}
+        />;
     }
 }
+
 export default CounterContainer;
