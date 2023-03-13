@@ -1,5 +1,5 @@
 import CounterContainer from "../Counter/containers/CounterContainer";
-import ControlPanelView from "../ControlPanel/components";
+// import ControlPanelView from "../ControlPanel/components/ControlPanelView";
 
 import styles from "./styles.module.css";
 

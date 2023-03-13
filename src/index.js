@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import App from "./components/App/App";
+// import App from "./components/App/App";
 import {BrowserRouter} from "react-router-dom";
 
 import Router from "./routes/Router";
@@ -18,10 +18,7 @@ root.render(
         <MainLayout>
             <Router/>
         </MainLayout>
-
-
     </BrowserRouter>
-
 );
 
 
